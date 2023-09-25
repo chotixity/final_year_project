@@ -6,12 +6,12 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    //Future.delayed(const Duration(seconds: 3), () {
-    //  Navigator.pushReplacementNamed(context, HomeScreen.routeName);
-    //});
+    // Future.delayed(const Duration(seconds: 3), () {
+    //   Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    // });
     return Scaffold(
       backgroundColor: theme.primaryColor,
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -19,20 +19,10 @@ class SplashScreen extends StatelessWidget {
               height: 300,
               width: 200,
               child: CircleAvatar(
-                radius: 400,
-                child: Image.asset(
+                minRadius: 350,
+                backgroundImage: AssetImage(
                   'assets/images/images.png',
-                  //height: 250,
-                  fit: BoxFit.contain,
                 ),
-              ),
-            ),
-            Text(
-              'KUSDA',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 38,
-                color: theme.colorScheme.onSecondary,
               ),
             ),
           ],

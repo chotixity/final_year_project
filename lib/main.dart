@@ -19,6 +19,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        brightness: Brightness.light,
+        textTheme: const TextTheme(
+          displayMedium: TextStyle(
+            color: Colors.white,
+            fontSize: 22,
+          ),
+        ),
       ),
       home: const SplashScreen(),
       routes: {
