@@ -8,8 +8,14 @@ class Draweer extends StatelessWidget {
     return Drawer(
       width: MediaQuery.of(context).size.width * .75,
       child: ListView(
-          //children:  [ListTile.divideTiles(tiles: <Widget>[])],
-          ),
+        children: const [
+          UserAccountsDrawerHeader(
+            currentAccountPicture: CircleAvatar(),
+            accountEmail: Text('melkychoti@gmail.com'),
+            accountName: Text('Melkzedek Choti'),
+          )
+        ],
+      ),
     );
   }
 }
