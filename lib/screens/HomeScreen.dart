@@ -35,7 +35,23 @@ class HomeScreen extends StatelessWidget {
                 iconSize: 30,
               ),
             ],
-          )
+          ),
+          SliverToBoxAdapter(
+            child: Text(
+              'Upcoming activities',
+              style: theme.textTheme.bodyMedium,
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              <Widget>[
+                Text(
+                  'WOSE',
+                  style: theme.textTheme.bodyMedium,
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
