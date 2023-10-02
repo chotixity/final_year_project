@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      scaffoldMessengerKey: messengerkey,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: Authenticate(),
+      home: const Authenticate(),
       routes: {
         HomeScreen.routeName: (context) => const HomeScreen(),
       },

@@ -10,8 +10,20 @@ class Authenticate extends StatefulWidget {
 }
 
 class _AuthenticateState extends State<Authenticate> {
+  final List<DropdownMenuEntry<String>> items = [
+    const DropdownMenuEntry(value: 'Great Hope', label: 'Great Hope'),
+    const DropdownMenuEntry(value: 'Macheo', label: 'Macheo'),
+    const DropdownMenuEntry(
+        value: 'Christ Ambassadors', label: 'Christ Ambassadors'),
+    const DropdownMenuEntry(value: 'Heralds', label: 'Heralds'),
+    const DropdownMenuEntry(value: 'Present Truth', label: 'Present Truth'),
+    const DropdownMenuEntry(value: 'White Doves', label: 'White Doves'),
+    const DropdownMenuEntry(value: 'Gospel Melodies', label: 'Gospel Melodies')
+  ];
   final _emailController = TextEditingController();
+  final _ministryController = TextEditingController();
   final _passwordController = TextEditingController();
+  String? ministry;
   AuthMode _authMode = AuthMode.login;
   final _formKey = GlobalKey<FormState>();
 
@@ -44,7 +56,7 @@ class _AuthenticateState extends State<Authenticate> {
             color: Theme.of(context).colorScheme.onSecondary,
             borderRadius: BorderRadius.circular(30),
           ),
-          height: _authMode == AuthMode.login ? 300 : 350,
+          height: _authMode == AuthMode.login ? 300 : 430,
           width: MediaQuery.of(context).size.width * .8,
           child: Padding(
             padding: const EdgeInsets.all(20.0),
@@ -77,10 +89,34 @@ class _AuthenticateState extends State<Authenticate> {
                     const SizedBox(
                       height: 20,
                     ),
+                    _authMode == AuthMode.signUp
+                        ? DropdownMenu(
+                            inputDecorationTheme: const InputDecorationTheme(
+                              outlineBorder: BorderSide.none,
+                            ),
+                            //width: MediaQuery.of(context).size.width * .6,
+                            hintText: 'Choose your Ministry',
+                            label: const Text('Ministry'),
+                            dropdownMenuEntries: items,
+                            onSelected: (String? newMinistry) {
+                              setState(() {
+                                ministry = newMinistry;
+                              });
+                            },
+                          )
+                        : const SizedBox(
+                            height: 1,
+                          ),
+                    if (_authMode == AuthMode.signUp)
+                      const SizedBox(
+                        height: 20,
+                      ),
                     ElevatedButton(
                       style: ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(
-                              Theme.of(context).primaryColor)),
+                        backgroundColor: MaterialStatePropertyAll(
+                          Theme.of(context).primaryColor,
+                        ),
+                      ),
                       onPressed: () {},
                       child: Text(
                         _authMode == AuthMode.login ? 'Login' : 'Sign Up',
